@@ -1,0 +1,10 @@
+<div class="grid-flex-container" (mouseup)="onMouseUp()" (mouseleave)="onMouseUp()">
+
+  <div class="row" *ngFor="let row of this.grid ">
+
+    <div *ngFor="let node of row" class="node" [ngStyle]="getBackground(node)" (mousedown)="onMouseDown(node, $event)"
+      (mouseenter)="onMouseEnter(node, $event)">
+      <div [ngClass]="getClass(node)"></div>
+    </div>
+  </div>
+</div>
