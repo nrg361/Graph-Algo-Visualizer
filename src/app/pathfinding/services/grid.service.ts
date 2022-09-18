@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { NodeTypes, Node } from '../types';
 import { dijkstra } from '../algorithms/dijkstra';
 import { dfs } from '../algorithms/dfs';
+import { bfs } from '../algorithms/bfs';
 
 @Injectable({
   providedIn: 'root'
@@ -137,6 +138,7 @@ export class GridService {
     let visitedNodes;
     if (algorithm === 'dijkstra') { visitedNodes = dijkstra(this.grid, this.startNode, this.endNode); }
     else if (algorithm === 'dfs') { visitedNodes = dfs(this.grid, this.startNode, this.endNode); }
+    else { visitedNodes = bfs(this.grid, this.startNode, this.endNode); }
 
     let count = 1;
     for (const node of visitedNodes) {
@@ -147,6 +149,7 @@ export class GridService {
       }, delay * count++);
     }
     if (visitedNodes[visitedNodes.length - 1].type === NodeTypes.End) {
+      console.log("found");
       const shortestPath = getShortestPath(visitedNodes);
       for (const node of shortestPath) {
         setTimeout(() => {

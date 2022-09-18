@@ -11,7 +11,7 @@ export class MenuComponent {
   buttonText = 'Find Path!';
   buttonCss = 'btn-green';
   gridTypeSelect = 'unweighted';
-  algoSelect = 'dfs';
+  algoSelect = 'bfs';
   delay = '20';
   menuLocked = false;
 
